@@ -4,6 +4,10 @@ Chat-driven form builder. Experiment.
 
 An LLM edits a JSON form definition through tool calls. The form renders next to the chat.
 
+## Architecture
+
+<img src="docs/architecture.png" alt="Architecture: browser, Next.js server, LLM endpoint" width="560">
+
 ## Run
 
 ```bash
