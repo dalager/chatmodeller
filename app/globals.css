@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-canvas: #f2f1ec;
+  --color-sheet: #ffffff;
+  --color-ink: #1d1c19;
+  --color-muted: #6b6960;
+  --color-faint: #9b988d;
+  --color-line: #dedcd3;
+  --color-accent: #1f5f5b;
+  --color-accent-soft: #e3efed;
+  --color-danger: #b3261e;
+  --color-danger-soft: #fbeceb;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+/* Elements the assistant just added or changed light up briefly. */
+@keyframes changed {
+  0% {
+    background-color: var(--color-accent-soft);
+    box-shadow: 0 0 0 6px var(--color-accent-soft);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+.just-changed {
+  animation: changed 1.8s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .just-changed {
+    animation: none;
+  }
 }
